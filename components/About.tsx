@@ -48,6 +48,22 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
         </div>
       </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-8 mb-16">
+        <div className="bg-indigo-50 border border-indigo-100 p-8 rounded-3xl hover:shadow-lg transition-shadow">
+          <div className="flex flex-col md:flex-row md:items-center gap-6">
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-stone-800 mb-2">Labs & Monitoring</h3>
+              <p className="text-stone-500 leading-relaxed">After every teleconsult, your physician can request labs directly through the platform. Visit any partner laboratory near you, and results are automatically forwarded to your doctor — no chasing paperwork, no extra trips.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section className="mb-16 bg-stone-800 text-white p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
         <div className="relative z-10">
@@ -90,6 +106,15 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
         >
           Register for Mediliver PH
         </button>
+      </div>
+
+      <div className="bg-red-50 border border-red-100 rounded-2xl p-4 flex items-start gap-3 mb-8">
+        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+        </div>
+        <p className="text-red-700 text-sm leading-relaxed">
+          <strong>Emergency Disclaimer:</strong> Mediliver PH is for chronic maintenance care only. If you are experiencing a medical emergency, <strong>please go to your nearest Emergency Room or call 911 immediately.</strong>
+        </p>
       </div>
     </div>
   );
