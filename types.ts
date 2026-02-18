@@ -37,7 +37,10 @@ export enum AppState {
   CONSULTATION = 'CONSULTATION',
   SCANNER = 'SCANNER',
   PAYMENT = 'PAYMENT',
-  PROFILE = 'PROFILE'
+  PROFILE = 'PROFILE',
+  LOGIN = 'LOGIN',
+  PHARMACY_PORTAL = 'PHARMACY_PORTAL',
+  DOCTOR_PORTAL = 'DOCTOR_PORTAL',
 }
 
 export enum DashboardTab {
@@ -129,4 +132,124 @@ export interface PrescriptionUpload {
   status: 'pending_review' | 'verified' | 'rejected';
   pharmacistNotes?: string;
   medicationsExtracted?: string[];
+}
+
+// ─── Auth ───────────────────────────────────────────────────────────────────
+
+export type UserRole = 'patient' | 'pharmacy' | 'doctor';
+
+export interface AuthSession {
+  role: UserRole;
+  name: string;
+  email: string;
+}
+
+// ─── Partner Portal Tabs ────────────────────────────────────────────────────
+
+export enum PharmacyTab {
+  OVERVIEW = 'OVERVIEW',
+  ORDERS = 'ORDERS',
+  VERIFICATION = 'VERIFICATION',
+  DISPATCH = 'DISPATCH',
+  DISCOUNTS = 'DISCOUNTS',
+}
+
+export enum DoctorTab {
+  OVERVIEW = 'OVERVIEW',
+  PATIENTS = 'PATIENTS',
+  SCHEDULE = 'SCHEDULE',
+  LAB_REVIEW = 'LAB_REVIEW',
+  PRESCRIPTIONS = 'PRESCRIPTIONS',
+}
+
+// ─── Pharmacy Portal ─────────────────────────────────────────────────────────
+
+export type PharmacyOrderStatus =
+  | 'pending_verification'
+  | 'verified'
+  | 'packing'
+  | 'dispatched'
+  | 'delivered';
+
+export interface PharmacyOrder {
+  id: string;
+  patientName: string;
+  patientAge: number;
+  medications: string[];
+  prescriptionStatus: 'pending' | 'verified' | 'flagged';
+  orderStatus: PharmacyOrderStatus;
+  receivedAt: string;
+  estimatedDispatch?: string;
+  hasSeniorPwdId: boolean;
+  discountApplied: boolean;
+  refillCycle: 30 | 60 | 90;
+  notes?: string;
+}
+
+export interface PharmacyStats {
+  ordersToday: number;
+  pendingVerification: number;
+  awaitingDispatch: number;
+  deliveredThisMonth: number;
+}
+
+// ─── Doctor Portal ────────────────────────────────────────────────────────────
+
+export type ConsultStatus = 'scheduled' | 'in_progress' | 'completed' | 'cancelled';
+
+export interface DoctorPatient {
+  id: string;
+  name: string;
+  age: number;
+  condition: string;
+  medications: string[];
+  lastConsult: string;
+  nextConsult?: string;
+  labsPending: number;
+  adherencePercent: number;
+  flagged: boolean;
+}
+
+export interface DoctorConsult {
+  id: string;
+  patientId: string;
+  patientName: string;
+  date: string;
+  time: string;
+  type: 'teleconsult' | 'follow-up' | 'lab-review';
+  status: ConsultStatus;
+  notes?: string;
+}
+
+export interface DoctorLabReview {
+  id: string;
+  patientName: string;
+  patientId: string;
+  testName: string;
+  completedDate: string;
+  flagged: boolean;
+  reviewed: boolean;
+  results: Array<{
+    parameter: string;
+    value: string;
+    unit: string;
+    referenceRange: string;
+    flag: 'normal' | 'high' | 'low' | 'critical';
+  }>;
+}
+
+export interface DoctorPrescription {
+  id: string;
+  patientName: string;
+  medications: string[];
+  issuedDate: string;
+  status: 'active' | 'expired' | 'pending_renewal';
+  renewalRequested: boolean;
+}
+
+export interface DoctorStats {
+  patientsTotal: number;
+  consultsToday: number;
+  labsToReview: number;
+  renewalRequests: number;
 }

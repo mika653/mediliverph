@@ -1,12 +1,15 @@
 
 import React, { useState } from 'react';
-import { AppState, Medication, PrescriptionAnalysis, UserProfile, OnboardingData } from './types';
+import { AppState, Medication, PrescriptionAnalysis, UserProfile, OnboardingData, AuthSession, UserRole } from './types';
 import { PrescriptionScanner } from './components/PrescriptionScanner';
 import { Consultation } from './components/Consultation';
 import { Onboarding } from './components/Onboarding';
 import { Payment } from './components/Payment';
 import { About } from './components/About';
 import { Dashboard } from './components/Dashboard';
+import { Login } from './components/Login';
+import { PharmacyPortal } from './components/PharmacyPortal';
+import { DoctorPortal } from './components/DoctorPortal';
 
 const App: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<AppState>(AppState.LANDING);
@@ -27,6 +30,25 @@ const App: React.FC = () => {
   ]);
 
   const [isScannerOpen, setIsScannerOpen] = useState(false);
+  const [authSession, setAuthSession] = useState<AuthSession | null>(null);
+  const [loginDefaultRole, setLoginDefaultRole] = useState<UserRole>('patient');
+
+  const handleLoginSuccess = (session: AuthSession) => {
+    setAuthSession(session);
+    if (session.role === 'patient') {
+      setUserProfile(prev => ({ ...prev, isRegistered: true }));
+      setCurrentStep(AppState.DASHBOARD);
+    } else if (session.role === 'pharmacy') {
+      setCurrentStep(AppState.PHARMACY_PORTAL);
+    } else {
+      setCurrentStep(AppState.DOCTOR_PORTAL);
+    }
+  };
+
+  const handleLogout = () => {
+    setAuthSession(null);
+    setCurrentStep(AppState.LANDING);
+  };
 
   const handleOnboardingComplete = (data: OnboardingData) => {
     setUserProfile({
@@ -63,6 +85,7 @@ const App: React.FC = () => {
         </h1>
         <div className="flex gap-4 items-center">
           <button onClick={() => setCurrentStep(AppState.ABOUT)} className="font-semibold text-stone-500 hover:text-blue-700 transition-colors">About</button>
+          <button onClick={() => { setLoginDefaultRole('patient'); setCurrentStep(AppState.LOGIN); }} className="font-semibold text-stone-500 hover:text-blue-700 transition-colors">Login</button>
           <button onClick={() => setCurrentStep(AppState.ONBOARDING)} className="font-bold text-white bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md">Register</button>
         </div>
       </nav>
@@ -407,8 +430,14 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-red-100 text-center">
+      <footer className="py-8 border-t border-red-100 text-center space-y-2">
         <p className="text-stone-400 text-sm">Mediliver PH — Chronic care, simplified for Filipino families.</p>
+        <button
+          onClick={() => { setLoginDefaultRole('pharmacy'); setCurrentStep(AppState.LOGIN); }}
+          className="text-stone-400 text-sm hover:text-blue-600 transition-colors underline underline-offset-2"
+        >
+          Partner Portal
+        </button>
       </footer>
     </div>
   );
@@ -484,6 +513,24 @@ const App: React.FC = () => {
             </p>
           </div>
         </div>
+      )}
+
+      {currentStep === AppState.LOGIN && (
+        <div className="min-h-screen bg-gradient-to-b from-blue-50 to-ivory flex items-center justify-center p-4">
+          <Login
+            defaultRole={loginDefaultRole}
+            onSuccess={handleLoginSuccess}
+            onBack={() => setCurrentStep(AppState.LANDING)}
+          />
+        </div>
+      )}
+
+      {currentStep === AppState.PHARMACY_PORTAL && authSession && (
+        <PharmacyPortal session={authSession} onLogout={handleLogout} />
+      )}
+
+      {currentStep === AppState.DOCTOR_PORTAL && authSession && (
+        <DoctorPortal session={authSession} onLogout={handleLogout} />
       )}
 
       {isScannerOpen && (
