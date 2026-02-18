@@ -20,7 +20,7 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
         </div>
         <h1 className="font-display text-4xl md:text-5xl text-stone-800 mb-6">Redefining Chronic Care in the Philippines</h1>
         <p className="text-xl text-stone-500 leading-relaxed max-w-2xl mx-auto">
-          Mediliver PH is the first physician-guided subscription platform designed specifically for Filipinos managing long-term health conditions.
+          Mediliver PH is the first physician-guided subscription platform designed for all Filipinos managing long-term health conditions — from seniors needing reliable refills, to busy professionals who can't afford the wait, to anyone who values discreet, stigma-free medicine delivery.
         </p>
       </section>
 
@@ -68,7 +68,7 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
         <div className="relative z-10">
           <h2 className="font-display text-3xl mb-8 text-center">Built for Continuity</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
             <div className="p-5 border border-stone-600 rounded-2xl bg-stone-700/40 hover:bg-stone-700/60 transition-colors">
               <p className="text-blue-400 font-bold text-lg mb-1">HTN</p>
               <p className="text-sm text-stone-300">Hypertension Management</p>
@@ -80,6 +80,18 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
             <div className="p-5 border border-stone-600 rounded-2xl bg-stone-700/40 hover:bg-stone-700/60 transition-colors">
               <p className="text-blue-400 font-bold text-lg mb-1">Dyslipidemia</p>
               <p className="text-sm text-stone-300">Cholesterol Control</p>
+            </div>
+            <div className="p-5 border border-stone-600 rounded-2xl bg-stone-700/40 hover:bg-stone-700/60 transition-colors">
+              <p className="text-blue-400 font-bold text-lg mb-1">HIV / ART</p>
+              <p className="text-sm text-stone-300">Discreet Antiretroviral Therapy</p>
+            </div>
+            <div className="p-5 border border-stone-600 rounded-2xl bg-stone-700/40 hover:bg-stone-700/60 transition-colors">
+              <p className="text-blue-400 font-bold text-lg mb-1">Mental Health</p>
+              <p className="text-sm text-stone-300">Private Medication Delivery</p>
+            </div>
+            <div className="p-5 border border-stone-600 rounded-2xl bg-stone-700/40 hover:bg-stone-700/60 transition-colors">
+              <p className="text-blue-400 font-bold text-lg mb-1">And More</p>
+              <p className="text-sm text-stone-300">Thyroid, Asthma, GERD</p>
             </div>
           </div>
         </div>
@@ -99,7 +111,7 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
 
       <div className="flex flex-col items-center gap-4 py-12 border-t border-blue-100">
         <h3 className="font-display text-2xl text-stone-800">Ready to simplify your care?</h3>
-        <p className="text-stone-500 mb-4">Join Filipino families who trust Mediliver PH</p>
+        <p className="text-stone-500 mb-4">Join thousands of Filipinos who trust Mediliver PH</p>
         <button
           onClick={onRegister}
           className="bg-blue-600 text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"

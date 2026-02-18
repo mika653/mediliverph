@@ -2,11 +2,11 @@
 import React, { useState } from 'react';
 import { AppState, Medication, PrescriptionAnalysis, UserProfile, OnboardingData } from './types';
 import { PrescriptionScanner } from './components/PrescriptionScanner';
-import { MedicationPack } from './components/MedicationPack';
 import { Consultation } from './components/Consultation';
 import { Onboarding } from './components/Onboarding';
 import { Payment } from './components/Payment';
 import { About } from './components/About';
+import { Dashboard } from './components/Dashboard';
 
 const App: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<AppState>(AppState.LANDING);
@@ -75,17 +75,17 @@ const App: React.FC = () => {
             <div className="relative z-10 py-12 lg:py-20">
               <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-8">
                 <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                Trusted by Filipino families
+                Trusted by Filipinos everywhere
               </div>
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-stone-800 mb-6 leading-[1.1]">
-                Seamless Care for{' '}
-                <span className="text-blue-600 italic">Filipino Seniors</span>
+                Seamless Care,{' '}
+                <span className="text-blue-600 italic">Delivered to You</span>
               </h1>
               <p className="text-xl md:text-2xl text-stone-500 max-w-xl leading-relaxed mb-4">
                 Gamot na Sigurado, Hatid sa Inyo
               </p>
               <p className="text-lg text-stone-400 max-w-lg leading-relaxed mb-10">
-                Physician-guided, pharmacist-verified maintenance medicine delivered to your doorstep every month.
+                Whether you're a senior managing daily meds, a professional too busy to line up, or someone who values discreet delivery — your maintenance medicine arrives at your door, physician-guided and pharmacist-verified.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -220,26 +220,32 @@ const App: React.FC = () => {
             Managing chronic illness shouldn't be this hard
           </h2>
           <p className="text-center text-stone-500 text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
-            For millions of Filipino seniors on maintenance medication, the monthly routine is exhausting — and skipping even one refill has real consequences.
+            For millions of Filipinos on maintenance medication — seniors, busy professionals, and those seeking privacy — the monthly routine is exhausting, and skipping even one refill has real consequences.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="relative pl-6 border-l-2 border-stone-200">
               <p className="font-display text-4xl text-stone-800 mb-2">50%</p>
               <p className="text-stone-500 leading-relaxed">
-                of Filipino patients with hypertension don't take their medication consistently, often due to access barriers.
+                of Filipino patients with chronic conditions don't take their medication consistently, often due to access barriers.
               </p>
             </div>
             <div className="relative pl-6 border-l-2 border-stone-200">
               <p className="font-display text-4xl text-stone-800 mb-2">3–4 hrs</p>
               <p className="text-stone-500 leading-relaxed">
-                Average time a senior spends per month traveling to a doctor, waiting in line at a pharmacy, and going home.
+                Average time spent per month traveling to a doctor, waiting in line at a pharmacy, and going home.
               </p>
             </div>
             <div className="relative pl-6 border-l-2 border-stone-200">
               <p className="font-display text-4xl text-stone-800 mb-2">1 in 3</p>
               <p className="text-stone-500 leading-relaxed">
-                Filipino seniors live with at least two chronic conditions requiring daily medication.
+                Filipino adults live with at least one chronic condition requiring daily medication.
+              </p>
+            </div>
+            <div className="relative pl-6 border-l-2 border-blue-200">
+              <p className="font-display text-4xl text-blue-600 mb-2">Stigma</p>
+              <p className="text-stone-500 leading-relaxed">
+                Many Filipinos avoid picking up medication for HIV, mental health, and other stigmatized conditions. Discreet delivery removes that barrier.
               </p>
             </div>
           </div>
@@ -336,7 +342,7 @@ const App: React.FC = () => {
             We currently support patients managing the most common maintenance conditions in the Philippines.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
             <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
               <p className="font-display text-2xl mb-1">Hypertension</p>
               <p className="text-stone-400 text-sm">Amlodipine, Losartan, Telmisartan, and more</p>
@@ -348,6 +354,18 @@ const App: React.FC = () => {
             <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
               <p className="font-display text-2xl mb-1">Dyslipidemia</p>
               <p className="text-stone-400 text-sm">Atorvastatin, Rosuvastatin, Fenofibrate</p>
+            </div>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-2xl mb-1">HIV / ART</p>
+              <p className="text-stone-400 text-sm">Antiretroviral therapy, discreet and consistent delivery</p>
+            </div>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-2xl mb-1">Mental Health</p>
+              <p className="text-stone-400 text-sm">SSRIs, mood stabilizers, anxiolytics — delivered privately</p>
+            </div>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-2xl mb-1">And More</p>
+              <p className="text-stone-400 text-sm">Thyroid, asthma, GERD — any chronic maintenance need</p>
             </div>
           </div>
 
@@ -395,133 +413,19 @@ const App: React.FC = () => {
     </div>
   );
 
-  const Dashboard = () => (
-    <div className="pb-24 max-w-4xl mx-auto px-4 pt-8 bg-ivory min-h-screen">
-      <header className="flex justify-between items-center mb-8">
-        <div>
-          <h2 className="font-display text-3xl text-stone-800">Hello, {userProfile.name}!</h2>
-          <div className="flex items-center gap-2 mt-1">
-            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-            <p className="text-stone-400 text-lg">Active Subscription: {userProfile.refillCycle}-Day Cycle</p>
-          </div>
-        </div>
-        <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center border-4 border-white shadow-md cursor-pointer hover:scale-105 transition-transform" onClick={() => setCurrentStep(AppState.LANDING)}>
-          <span className="text-xl">👩‍🦳</span>
-        </div>
-      </header>
-
-      <div className="space-y-8">
-        {/* Refill Progress Card */}
-        <section className="bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
-          <div className="relative z-10">
-            <h3 className="text-lg font-medium opacity-90 mb-2">Refill Automation</h3>
-            <p className="text-4xl font-black mb-1">22 Days Remaining</p>
-            <div className="w-full bg-blue-800/40 h-3 rounded-full mb-6">
-              <div className="bg-white h-3 rounded-full w-[70%]"></div>
-            </div>
-            <button className="bg-white text-blue-700 px-6 py-3 rounded-full font-bold text-lg hover:bg-blue-50 transition-colors shadow-sm">
-              Request Early Refill
-            </button>
-          </div>
-          <div className="absolute top-0 right-0 p-6 opacity-10 pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-32 h-32" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
-          </div>
-        </section>
-
-        {/* Medication Pack */}
-        <section>
-          <MedicationPack medications={meds} />
-        </section>
-
-        {/* Action Cards */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white rounded-3xl border border-emerald-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-stone-800">Doctor's Call</h3>
-                <p className="text-emerald-600 text-sm font-semibold">{userProfile.nextConsultation}</p>
-              </div>
-            </div>
-            <button
-              onClick={() => setCurrentStep(AppState.CONSULTATION)}
-              className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-lg hover:bg-emerald-700 transition-colors"
-            >
-              Start Consult
-            </button>
-          </div>
-
-          <div className="bg-white rounded-3xl border border-indigo-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-stone-800">Lab Requests</h3>
-                <p className="text-indigo-600 text-sm font-semibold">2 pending from last consult</p>
-              </div>
-            </div>
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center justify-between bg-indigo-50 rounded-lg px-3 py-2">
-                <span className="text-sm text-stone-700">HbA1c (Blood Sugar)</span>
-                <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded-full">Pending</span>
-              </div>
-              <div className="flex items-center justify-between bg-indigo-50 rounded-lg px-3 py-2">
-                <span className="text-sm text-stone-700">Lipid Panel</span>
-                <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded-full">Pending</span>
-              </div>
-            </div>
-            <p className="text-xs text-stone-400 mb-3">Results are auto-forwarded to your doctor once ready.</p>
-            <button className="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold text-lg hover:bg-indigo-700 transition-colors">
-              View Lab Details
-            </button>
-          </div>
-
-          <div className="bg-white rounded-3xl border border-blue-100 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-stone-800">Senior/PWD Benefit</h3>
-                <p className="text-blue-600 text-sm font-semibold">
-                  {userProfile.hasSeniorPwdId ? 'ID Verified: 20% Applied' : 'No ID: Regular Pricing'}
-                </p>
-              </div>
-            </div>
-            <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors">
-              Update ID Documents
-            </button>
-          </div>
-        </section>
-      </div>
-
-      {/* ER Disclaimer */}
-      <section className="mt-8 bg-red-50 border border-red-100 rounded-2xl p-4 flex items-start gap-3">
-        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-        </div>
-        <p className="text-red-700 text-xs leading-relaxed">
-          <strong>Emergency?</strong> This service is for chronic maintenance care only. If you need emergency medical attention, <strong>go to the nearest ER or call 911 immediately.</strong>
-        </p>
-      </section>
-
-      {/* Bottom Nav */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-stone-200 p-4 flex justify-around items-center z-40 max-w-4xl mx-auto rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.06)]">
-        <button onClick={() => setCurrentStep(AppState.DASHBOARD)} className="flex flex-col items-center gap-1">
-          <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 ${currentStep === AppState.DASHBOARD ? 'text-blue-600' : 'text-stone-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-          <span className={`text-xs font-bold ${currentStep === AppState.DASHBOARD ? 'text-blue-600' : 'text-stone-400'}`}>HOME</span>
-        </button>
-        <button onClick={() => setIsScannerOpen(true)} className="flex flex-col items-center -mt-12 bg-blue-600 p-5 rounded-full shadow-xl hover:scale-105 transition-transform active:scale-95 border-4 border-white">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-        </button>
-        <button onClick={() => setCurrentStep(AppState.CONSULTATION)} className="flex flex-col items-center gap-1">
-          <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 ${currentStep === AppState.CONSULTATION ? 'text-blue-600' : 'text-stone-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
-          <span className={`text-xs font-bold ${currentStep === AppState.CONSULTATION ? 'text-blue-600' : 'text-stone-400'}`}>DOCTOR</span>
-        </button>
-      </div>
+  const BottomNav = () => (
+    <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-stone-200 p-4 flex justify-around items-center z-40 max-w-4xl mx-auto rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.06)]">
+      <button onClick={() => setCurrentStep(AppState.DASHBOARD)} className="flex flex-col items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 ${currentStep === AppState.DASHBOARD ? 'text-blue-600' : 'text-stone-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+        <span className={`text-xs font-bold ${currentStep === AppState.DASHBOARD ? 'text-blue-600' : 'text-stone-400'}`}>HOME</span>
+      </button>
+      <button onClick={() => setIsScannerOpen(true)} className="flex flex-col items-center -mt-12 bg-blue-600 p-5 rounded-full shadow-xl hover:scale-105 transition-transform active:scale-95 border-4 border-white">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+      </button>
+      <button onClick={() => setCurrentStep(AppState.CONSULTATION)} className="flex flex-col items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 ${currentStep === AppState.CONSULTATION ? 'text-blue-600' : 'text-stone-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+        <span className={`text-xs font-bold ${currentStep === AppState.CONSULTATION ? 'text-blue-600' : 'text-stone-400'}`}>DOCTOR</span>
+      </button>
     </div>
   );
 
@@ -552,7 +456,17 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {currentStep === AppState.DASHBOARD && <Dashboard />}
+      {currentStep === AppState.DASHBOARD && (
+        <>
+          <Dashboard
+            userProfile={userProfile}
+            medications={meds}
+            onNavigate={setCurrentStep}
+            onScannerOpen={() => setIsScannerOpen(true)}
+          />
+          <BottomNav />
+        </>
+      )}
 
       {currentStep === AppState.CONSULTATION && (
         <div className="p-4 pt-8 max-w-4xl mx-auto h-screen flex flex-col bg-ivory">
