@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediliverPH - Personalized Medicine Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'serif': ['"DM Serif Display"', 'Georgia', 'serif'],
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              warm: {
+                50: '#FFFBF0',
+                100: '#FFF3D6',
+                200: '#FFE4AD',
+                300: '#FFD084',
+                400: '#FFBA5C',
+                500: '#F5A623',
+                600: '#D4891A',
+                700: '#A66A14',
+                800: '#7A4E10',
+                900: '#4E320A',
+              },
+              cream: '#FFF9F0',
+              ivory: '#FEFCF3',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEFCF3;
+        }
+        .font-display {
+            font-family: 'DM Serif Display', Georgia, serif;
+        }
+        /* Senior friendly: ensure large touch targets and readable text */
+        button, a {
+            min-height: 44px;
+        }
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Hero image shimmer animation */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .hero-shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        /* Warm glow effect */
+        .warm-glow {
+            box-shadow: 0 0 60px rgba(245, 166, 35, 0.15), 0 0 120px rgba(245, 166, 35, 0.05);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

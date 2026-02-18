@@ -1,0 +1,8 @@
+
+{
+  "name": "MediliverPH",
+  "description": "Gamot na Sigurado, Hatid sa Inyo. A Filipino physician-guided subscription platform for maintenance medicines, offering personalized packaging and doorstep delivery.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
