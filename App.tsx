@@ -212,6 +212,125 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* The Reality Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="text-center text-blue-600 text-sm font-semibold uppercase tracking-widest mb-4">The reality</p>
+          <h2 className="font-display text-3xl md:text-4xl text-stone-800 text-center mb-6">
+            Managing chronic illness shouldn't be this hard
+          </h2>
+          <p className="text-center text-stone-500 text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
+            For millions of Filipino seniors on maintenance medication, the monthly routine is exhausting — and skipping even one refill has real consequences.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="relative pl-6 border-l-2 border-stone-200">
+              <p className="font-display text-4xl text-stone-800 mb-2">50%</p>
+              <p className="text-stone-500 leading-relaxed">
+                of Filipino patients with hypertension don't take their medication consistently, often due to access barriers.
+              </p>
+            </div>
+            <div className="relative pl-6 border-l-2 border-stone-200">
+              <p className="font-display text-4xl text-stone-800 mb-2">3–4 hrs</p>
+              <p className="text-stone-500 leading-relaxed">
+                Average time a senior spends per month traveling to a doctor, waiting in line at a pharmacy, and going home.
+              </p>
+            </div>
+            <div className="relative pl-6 border-l-2 border-stone-200">
+              <p className="font-display text-4xl text-stone-800 mb-2">1 in 3</p>
+              <p className="text-stone-500 leading-relaxed">
+                Filipino seniors live with at least two chronic conditions requiring daily medication.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 border-t border-blue-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="text-center text-blue-600 text-sm font-semibold uppercase tracking-widest mb-4">How it works</p>
+          <h2 className="font-display text-3xl md:text-4xl text-stone-800 text-center mb-14">
+            Three steps. Then it just runs.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="text-center">
+              <div className="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 font-display text-2xl">1</div>
+              <h3 className="font-bold text-stone-800 text-lg mb-2">Register & consult</h3>
+              <p className="text-stone-500 leading-relaxed">
+                Sign up and book a quick teleconsult with a licensed physician. They'll review your prescription and care plan.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 font-display text-2xl">2</div>
+              <h3 className="font-bold text-stone-800 text-lg mb-2">Pharmacist verifies</h3>
+              <p className="text-stone-500 leading-relaxed">
+                A DOH-licensed pharmacist checks every medicine, confirms dosages, and sorts your pack by time of day.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 font-display text-2xl">3</div>
+              <h3 className="font-bold text-stone-800 text-lg mb-2">Delivered on schedule</h3>
+              <p className="text-stone-500 leading-relaxed">
+                Your medicine pack arrives at your door every 30, 60, or 90 days — before you run out. No trips, no lines.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Conditions & Quiet CTA */}
+      <section className="py-20 bg-stone-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <p className="text-center text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">Built for continuity</p>
+          <h2 className="font-display text-3xl md:text-4xl text-center mb-6">
+            Chronic conditions need consistent care
+          </h2>
+          <p className="text-center text-stone-400 text-lg max-w-xl mx-auto mb-14 leading-relaxed">
+            We currently support patients managing the most common maintenance conditions in the Philippines.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-2xl mb-1">Hypertension</p>
+              <p className="text-stone-400 text-sm">Amlodipine, Losartan, Telmisartan, and more</p>
+            </div>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-2xl mb-1">Diabetes</p>
+              <p className="text-stone-400 text-sm">Metformin, Glimepiride, Insulin support</p>
+            </div>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-2xl mb-1">Dyslipidemia</p>
+              <p className="text-stone-400 text-sm">Atorvastatin, Rosuvastatin, Fenofibrate</p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <p className="text-stone-400 mb-6">If your condition isn't listed, reach out — we're expanding coverage regularly.</p>
+            <button
+              onClick={() => setCurrentStep(AppState.ONBOARDING)}
+              className="bg-white text-stone-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-colors shadow-sm"
+            >
+              Check eligibility
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Quiet Testimonial */}
+      <section className="py-20">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-blue-200 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <blockquote className="font-display text-2xl md:text-3xl text-stone-700 italic leading-relaxed mb-6">
+            Before Mediliver, I had to take a tricycle to the pharmacy, wait in line, sometimes they didn't have my Metformin. Now it just arrives. My anak set it up for me.
+          </blockquote>
+          <p className="text-stone-500 font-semibold">Lola Carmen, 72</p>
+          <p className="text-stone-400 text-sm">Quezon City — Diabetes & Hypertension</p>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-8 border-t border-blue-100 text-center">
         <p className="text-stone-400 text-sm">Mediliver PH — Chronic care, simplified for Filipino families.</p>
