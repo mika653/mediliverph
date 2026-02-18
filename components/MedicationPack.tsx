@@ -10,7 +10,7 @@ export const MedicationPack: React.FC<Props> = ({ medications }) => {
   const periods: Medication['timing'][] = ['Morning', 'Afternoon', 'Evening', 'Before Bed'];
 
   const periodStyles: Record<string, { bg: string; text: string; icon: string }> = {
-    Morning: { bg: 'bg-amber-50 border-amber-200', text: 'text-amber-700', icon: 'bg-amber-100' },
+    Morning: { bg: 'bg-blue-50 border-blue-200', text: 'text-blue-700', icon: 'bg-blue-100' },
     Afternoon: { bg: 'bg-orange-50 border-orange-200', text: 'text-orange-700', icon: 'bg-orange-100' },
     Evening: { bg: 'bg-indigo-50 border-indigo-200', text: 'text-indigo-700', icon: 'bg-indigo-100' },
     'Before Bed': { bg: 'bg-purple-50 border-purple-200', text: 'text-purple-700', icon: 'bg-purple-100' },
@@ -54,7 +54,7 @@ export const MedicationPack: React.FC<Props> = ({ medications }) => {
                 ))}
               </ul>
               <div className="mt-6 pt-4 border-t border-stone-100">
-                <button className="w-full bg-amber-600 text-white py-3 rounded-xl font-bold text-lg hover:bg-amber-700 transition-colors">
+                <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors">
                   I have taken my medicine
                 </button>
               </div>

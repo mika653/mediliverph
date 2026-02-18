@@ -9,13 +9,13 @@ interface Props {
 export const About: React.FC<Props> = ({ onBack, onRegister }) => {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-ivory min-h-screen">
-      <button onClick={onBack} className="mb-8 text-amber-700 font-bold flex items-center gap-2 text-lg hover:text-amber-800 transition-colors">
+      <button onClick={onBack} className="mb-8 text-blue-700 font-bold flex items-center gap-2 text-lg hover:text-blue-800 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
         Back to Home
       </button>
 
       <section className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+        <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
           Our Mission
         </div>
         <h1 className="font-display text-4xl md:text-5xl text-stone-800 mb-6">Redefining Chronic Care in the Philippines</h1>
@@ -25,9 +25,9 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div className="bg-amber-50 border border-amber-100 p-8 rounded-3xl hover:shadow-lg transition-shadow">
-          <div className="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+        <div className="bg-blue-50 border border-blue-100 p-8 rounded-3xl hover:shadow-lg transition-shadow">
+          <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
           </div>
           <h3 className="text-xl font-bold text-stone-800 mb-2">Physician-Guided</h3>
           <p className="text-stone-500 leading-relaxed">Every treatment plan is reviewed by our resident physicians to ensure clinical accuracy and safety.</p>
@@ -49,20 +49,20 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
       </div>
 
       <section className="mb-16 bg-stone-800 text-white p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
         <div className="relative z-10">
           <h2 className="font-display text-3xl mb-8 text-center">Built for Continuity</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div className="p-5 border border-stone-600 rounded-2xl bg-stone-700/40 hover:bg-stone-700/60 transition-colors">
-              <p className="text-amber-400 font-bold text-lg mb-1">HTN</p>
+              <p className="text-blue-400 font-bold text-lg mb-1">HTN</p>
               <p className="text-sm text-stone-300">Hypertension Management</p>
             </div>
             <div className="p-5 border border-stone-600 rounded-2xl bg-stone-700/40 hover:bg-stone-700/60 transition-colors">
-              <p className="text-amber-400 font-bold text-lg mb-1">Diabetes</p>
+              <p className="text-blue-400 font-bold text-lg mb-1">Diabetes</p>
               <p className="text-sm text-stone-300">Type 1 & 2 Care</p>
             </div>
             <div className="p-5 border border-stone-600 rounded-2xl bg-stone-700/40 hover:bg-stone-700/60 transition-colors">
-              <p className="text-amber-400 font-bold text-lg mb-1">Dyslipidemia</p>
+              <p className="text-blue-400 font-bold text-lg mb-1">Dyslipidemia</p>
               <p className="text-sm text-stone-300">Cholesterol Control</p>
             </div>
           </div>
@@ -81,12 +81,12 @@ export const About: React.FC<Props> = ({ onBack, onRegister }) => {
         </div>
       </section>
 
-      <div className="flex flex-col items-center gap-4 py-12 border-t border-amber-100">
+      <div className="flex flex-col items-center gap-4 py-12 border-t border-blue-100">
         <h3 className="font-display text-2xl text-stone-800">Ready to simplify your care?</h3>
         <p className="text-stone-500 mb-4">Join Filipino families who trust Mediliver PH</p>
         <button
           onClick={onRegister}
-          className="bg-amber-600 text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-amber-700 transition-all shadow-lg hover:shadow-xl"
+          className="bg-blue-600 text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
         >
           Register for Mediliver PH
         </button>

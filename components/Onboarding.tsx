@@ -26,7 +26,7 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
       {[1, 2, 3, 4].map((s) => (
         <div key={s} className="flex flex-col items-center flex-1 relative">
           <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm z-10 transition-colors ${
-            step >= s ? 'bg-amber-600 text-white' : 'bg-stone-200 text-stone-400'
+            step >= s ? 'bg-blue-600 text-white' : 'bg-stone-200 text-stone-400'
           }`}>
             {step > s ? (
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -34,7 +34,7 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
           </div>
           {s < 4 && (
             <div className={`absolute left-[50%] top-4 w-full h-1 -z-0 ${
-              step > s ? 'bg-amber-600' : 'bg-stone-200'
+              step > s ? 'bg-blue-600' : 'bg-stone-200'
             }`} />
           )}
         </div>
@@ -43,10 +43,10 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
   );
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-3xl shadow-xl min-h-[650px] flex flex-col border border-amber-100/50">
+    <div className="max-w-md mx-auto p-6 bg-white rounded-3xl shadow-xl min-h-[650px] flex flex-col border border-blue-100/50">
       <div className="text-center mb-4">
         <h1 className="text-xl font-black tracking-tight">
-          <span className="text-amber-600">MEDI</span><span className="text-stone-800">LIVER PH</span>
+          <span className="text-blue-600">MEDI</span><span className="text-stone-800">LIVER PH</span>
         </h1>
         <p className="text-stone-400 text-sm font-bold uppercase tracking-widest">Patient Registration</p>
       </div>
@@ -55,15 +55,15 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
 
       {step === 1 && (
         <div className="flex-1 flex flex-col items-center text-center">
-          <div className="w-20 h-20 bg-amber-50 rounded-full flex items-center justify-center mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+          <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
           </div>
           <h2 className="font-display text-3xl text-stone-800 mb-4">How it works</h2>
           <p className="text-stone-500 mb-6 text-lg">Your journey to hassle-free chronic care starts here.</p>
           <div className="space-y-4 text-left w-full mt-4">
-            <div className="flex gap-4 items-start bg-amber-50 border border-amber-100 p-4 rounded-2xl">
-              <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+            <div className="flex gap-4 items-start bg-blue-50 border border-blue-100 p-4 rounded-2xl">
+              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
               </div>
               <div>
                 <p className="font-bold text-stone-800">Doctor-Guided</p>
@@ -80,7 +80,7 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
               </div>
             </div>
           </div>
-          <button onClick={nextStep} className="mt-auto w-full bg-amber-600 text-white py-5 rounded-2xl text-xl font-bold hover:bg-amber-700 transition-colors">
+          <button onClick={nextStep} className="mt-auto w-full bg-blue-600 text-white py-5 rounded-2xl text-xl font-bold hover:bg-blue-700 transition-colors">
             Start Registration
           </button>
         </div>
@@ -95,22 +95,22 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
               value={formData.fullName}
               onChange={e => setFormData({...formData, fullName: e.target.value})}
               placeholder="Full Name"
-              className="w-full p-4 rounded-xl border-2 border-stone-200 text-lg focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-all"
+              className="w-full p-4 rounded-xl border-2 border-stone-200 text-lg focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
             />
             <input
               type="number"
               value={formData.age}
               onChange={e => setFormData({...formData, age: e.target.value})}
               placeholder="Age"
-              className="w-full p-4 rounded-xl border-2 border-stone-200 text-lg focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-all"
+              className="w-full p-4 rounded-xl border-2 border-stone-200 text-lg focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
             />
-            <div className="p-4 bg-amber-50/50 rounded-xl border-2 border-amber-100">
+            <div className="p-4 bg-blue-50/50 rounded-xl border-2 border-blue-100">
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={formData.hasSeniorPwdId}
                   onChange={e => setFormData({...formData, hasSeniorPwdId: e.target.checked})}
-                  className="w-6 h-6 rounded accent-amber-600"
+                  className="w-6 h-6 rounded accent-blue-600"
                 />
                 <span className="text-lg font-semibold text-stone-700">I have a Senior / PWD ID</span>
               </label>
@@ -119,7 +119,7 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
           </div>
           <div className="flex gap-3 mt-8">
             <button onClick={prevStep} className="flex-1 bg-stone-100 text-stone-600 py-4 rounded-2xl font-bold hover:bg-stone-200 transition-colors">Back</button>
-            <button onClick={nextStep} className="flex-[2] bg-amber-600 text-white py-4 rounded-2xl font-bold text-xl hover:bg-amber-700 transition-colors">Continue</button>
+            <button onClick={nextStep} className="flex-[2] bg-blue-600 text-white py-4 rounded-2xl font-bold text-xl hover:bg-blue-700 transition-colors">Continue</button>
           </div>
         </div>
       )}
@@ -134,7 +134,7 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
                 key={days}
                 onClick={() => setFormData({...formData, refillCycle: days as 30|60|90})}
                 className={`p-5 rounded-2xl border-2 text-left transition-all ${
-                  formData.refillCycle === days ? 'border-amber-500 bg-amber-50 shadow-sm' : 'border-stone-100 hover:border-amber-200'
+                  formData.refillCycle === days ? 'border-blue-500 bg-blue-50 shadow-sm' : 'border-stone-100 hover:border-blue-200'
                 }`}
               >
                 <span className="block text-2xl font-bold text-stone-800">{days} Days</span>
@@ -144,7 +144,7 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
           </div>
           <div className="flex gap-3 mt-8">
             <button onClick={prevStep} className="flex-1 bg-stone-100 text-stone-600 py-4 rounded-2xl font-bold hover:bg-stone-200 transition-colors">Back</button>
-            <button onClick={nextStep} className="flex-[2] bg-amber-600 text-white py-4 rounded-2xl font-bold text-xl hover:bg-amber-700 transition-colors">Continue</button>
+            <button onClick={nextStep} className="flex-[2] bg-blue-600 text-white py-4 rounded-2xl font-bold text-xl hover:bg-blue-700 transition-colors">Continue</button>
           </div>
         </div>
       )}
@@ -158,12 +158,12 @@ export const Onboarding: React.FC<Props> = ({ onComplete }) => {
               type="date"
               value={formData.consultationDate}
               onChange={e => setFormData({...formData, consultationDate: e.target.value})}
-              className="w-full p-4 rounded-xl border-2 border-stone-200 text-lg focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-all"
+              className="w-full p-4 rounded-xl border-2 border-stone-200 text-lg focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
             />
             <select
               value={formData.consultationTime}
               onChange={e => setFormData({...formData, consultationTime: e.target.value})}
-              className="w-full p-4 rounded-xl border-2 border-stone-200 text-lg bg-white focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-all"
+              className="w-full p-4 rounded-xl border-2 border-stone-200 text-lg bg-white focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all"
             >
               <option value="">Select time slot</option>
               <option value="09:00 AM">09:00 AM</option>
