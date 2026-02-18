@@ -384,28 +384,28 @@ const App: React.FC = () => {
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-14">
-            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
-              <p className="font-display text-2xl mb-1">Hypertension</p>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-4 sm:p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-lg sm:text-2xl mb-1">Hypertension</p>
               <p className="text-stone-400 text-sm">Amlodipine, Losartan, Telmisartan, and more</p>
             </div>
-            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
-              <p className="font-display text-2xl mb-1">Diabetes</p>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-4 sm:p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-lg sm:text-2xl mb-1">Diabetes</p>
               <p className="text-stone-400 text-sm">Metformin, Glimepiride, Insulin support</p>
             </div>
-            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
-              <p className="font-display text-2xl mb-1">Dyslipidemia</p>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-4 sm:p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-lg sm:text-2xl mb-1">Dyslipidemia</p>
               <p className="text-stone-400 text-sm">Atorvastatin, Rosuvastatin, Fenofibrate</p>
             </div>
-            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
-              <p className="font-display text-2xl mb-1">HIV / ART</p>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-4 sm:p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-lg sm:text-2xl mb-1">HIV / ART</p>
               <p className="text-stone-400 text-sm">Antiretroviral therapy, discreet and consistent delivery</p>
             </div>
-            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
-              <p className="font-display text-2xl mb-1">Mental Health</p>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-4 sm:p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-lg sm:text-2xl mb-1">Mental Health</p>
               <p className="text-stone-400 text-sm">SSRIs, mood stabilizers, anxiolytics — delivered privately</p>
             </div>
-            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
-              <p className="font-display text-2xl mb-1">And More</p>
+            <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-4 sm:p-6 text-center hover:bg-stone-700/70 transition-colors">
+              <p className="font-display text-lg sm:text-2xl mb-1">And More</p>
               <p className="text-stone-400 text-sm">Thyroid, asthma, GERD — any chronic maintenance need</p>
             </div>
           </div>
