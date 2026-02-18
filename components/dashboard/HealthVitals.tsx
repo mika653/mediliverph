@@ -138,8 +138,8 @@ export const HealthVitals: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Log New Reading Form */}
-      <section className="bg-white rounded-3xl border border-blue-100 p-8 shadow-sm">
-        <h2 className="font-display text-2xl font-bold text-stone-800 mb-6">Log New Reading</h2>
+      <section className="bg-white rounded-3xl border border-blue-100 p-5 sm:p-8 shadow-sm">
+        <h2 className="font-display text-xl sm:text-2xl font-bold text-stone-800 mb-4 sm:mb-6">Log New Reading</h2>
 
         <div className="space-y-4">
           {/* Vital Type Select */}
@@ -153,7 +153,7 @@ export const HealthVitals: React.FC = () => {
                 setSystolicInput('');
                 setDiastolicInput('');
               }}
-              className="w-full p-4 text-lg border border-stone-200 rounded-2xl bg-white text-stone-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full p-3 sm:p-4 text-base sm:text-lg border border-stone-200 rounded-2xl bg-white text-stone-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               {vitalTypes.map((type) => (
                 <option key={type} value={type}>
@@ -175,7 +175,7 @@ export const HealthVitals: React.FC = () => {
                   value={systolicInput}
                   onChange={(e) => setSystolicInput(e.target.value)}
                   placeholder="e.g. 130"
-                  className="w-full p-4 text-lg border border-stone-200 rounded-2xl text-stone-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full p-3 sm:p-4 text-base sm:text-lg border border-stone-200 rounded-2xl text-stone-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
               <div>
@@ -187,7 +187,7 @@ export const HealthVitals: React.FC = () => {
                   value={diastolicInput}
                   onChange={(e) => setDiastolicInput(e.target.value)}
                   placeholder="e.g. 85"
-                  className="w-full p-4 text-lg border border-stone-200 rounded-2xl text-stone-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full p-3 sm:p-4 text-base sm:text-lg border border-stone-200 rounded-2xl text-stone-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
             </div>
@@ -201,7 +201,7 @@ export const HealthVitals: React.FC = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder={`Enter ${VITAL_LABELS[selectedType].toLowerCase()}`}
-                className="w-full p-4 text-lg border border-stone-200 rounded-2xl text-stone-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full p-3 sm:p-4 text-base sm:text-lg border border-stone-200 rounded-2xl text-stone-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
           )}
@@ -209,7 +209,7 @@ export const HealthVitals: React.FC = () => {
           {/* Save Button */}
           <button
             onClick={handleSave}
-            className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-colors shadow-sm"
+            className="w-full bg-blue-600 text-white py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
             Save Reading
           </button>
@@ -218,8 +218,8 @@ export const HealthVitals: React.FC = () => {
 
       {/* Vital Cards */}
       <section>
-        <h2 className="font-display text-2xl font-bold text-stone-800 mb-6">Your Vitals</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="font-display text-xl sm:text-2xl font-bold text-stone-800 mb-4 sm:mb-6">Your Vitals</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {vitalTypes.map((type) => {
             const readings = getReadingsForType(type);
             const latest = readings[0];
@@ -228,7 +228,7 @@ export const HealthVitals: React.FC = () => {
             return (
               <div
                 key={type}
-                className="bg-white rounded-2xl border border-stone-100 p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl border border-stone-100 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-display text-lg font-bold text-stone-800">
@@ -246,7 +246,7 @@ export const HealthVitals: React.FC = () => {
                 {latest ? (
                   <>
                     <div className="flex items-end gap-3 mb-2">
-                      <span className="text-4xl font-black text-stone-900">{latest.value}</span>
+                      <span className="text-3xl sm:text-4xl font-black text-stone-900">{latest.value}</span>
                       <span className="text-stone-400 text-sm mb-1">{VITAL_UNITS[type]}</span>
                       <span className="ml-auto text-2xl">
                         {trend === 'improving' && (
@@ -285,10 +285,10 @@ export const HealthVitals: React.FC = () => {
 
         return (
           <section key={type}>
-            <h2 className="font-display text-2xl font-bold text-stone-800 mb-4">
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-stone-800 mb-4">
               Recent {VITAL_LABELS[type]} Readings
             </h2>
-            <div className="bg-white rounded-2xl border border-stone-100 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border border-stone-100 shadow-sm overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="bg-stone-50 border-b border-stone-100">

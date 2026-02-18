@@ -80,15 +80,15 @@ export const DoctorPortal: React.FC<Props> = ({ session, onLogout }) => {
   };
 
   return (
-    <div className="pb-8 max-w-4xl mx-auto px-4 pt-8 bg-ivory min-h-screen">
+    <div className="pb-8 max-w-4xl mx-auto px-4 pt-6 sm:pt-8 bg-ivory min-h-screen">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-black text-stone-800 tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-black text-stone-800 tracking-tight">
             <span className="text-blue-600">MEDI</span>LIVER{' '}
-            <span className="text-blue-600 font-medium text-lg">PH</span>
+            <span className="text-blue-600 font-medium text-base sm:text-lg">PH</span>
           </h1>
-          <p className="text-stone-500 text-base mt-0.5">
+          <p className="text-stone-500 text-sm sm:text-base mt-0.5">
             Partner Portal &mdash; Physician
           </p>
         </div>

@@ -13,6 +13,7 @@ import { DoctorPortal } from './components/DoctorPortal';
 
 const App: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<AppState>(AppState.LANDING);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userProfile, setUserProfile] = useState<UserProfile>({
     name: "Lola Rosa",
     age: 68,
@@ -79,48 +80,65 @@ const App: React.FC = () => {
   const Landing = () => (
     <div className="flex flex-col min-h-screen bg-ivory">
       {/* Navigation */}
-      <nav className="w-full max-w-6xl mx-auto p-6 flex justify-between items-center relative z-20">
-        <h1 className="text-2xl font-black text-stone-800 tracking-tight">
-          <span className="text-blue-600">MEDI</span>LIVER <span className="text-blue-600 font-medium text-lg">PH</span>
+      <nav className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center relative z-20">
+        <h1 className="text-xl sm:text-2xl font-black text-stone-800 tracking-tight">
+          <span className="text-blue-600">MEDI</span>LIVER <span className="text-blue-600 font-medium text-base sm:text-lg">PH</span>
         </h1>
-        <div className="flex gap-4 items-center">
+        {/* Desktop nav */}
+        <div className="hidden sm:flex gap-4 items-center">
           <button onClick={() => setCurrentStep(AppState.ABOUT)} className="font-semibold text-stone-500 hover:text-blue-700 transition-colors">About</button>
           <button onClick={() => { setLoginDefaultRole('patient'); setCurrentStep(AppState.LOGIN); }} className="font-semibold text-stone-500 hover:text-blue-700 transition-colors">Login</button>
           <button onClick={() => setCurrentStep(AppState.ONBOARDING)} className="font-bold text-white bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md">Register</button>
         </div>
+        {/* Mobile hamburger */}
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="sm:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-stone-100 text-stone-600">
+          {mobileMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          )}
+        </button>
       </nav>
+      {/* Mobile menu dropdown */}
+      {mobileMenuOpen && (
+        <div className="sm:hidden px-4 pb-4 space-y-2 relative z-20">
+          <button onClick={() => { setCurrentStep(AppState.ABOUT); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-3 rounded-xl font-semibold text-stone-600 hover:bg-stone-100 transition-colors">About</button>
+          <button onClick={() => { setLoginDefaultRole('patient'); setCurrentStep(AppState.LOGIN); setMobileMenuOpen(false); }} className="w-full text-left px-4 py-3 rounded-xl font-semibold text-stone-600 hover:bg-stone-100 transition-colors">Login</button>
+          <button onClick={() => { setCurrentStep(AppState.ONBOARDING); setMobileMenuOpen(false); }} className="w-full text-center bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors">Register</button>
+        </div>
+      )}
 
       {/* Hero Section with Image */}
       <section className="relative w-full overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[70vh]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[50vh] lg:min-h-[70vh]">
             {/* Left: Text Content */}
-            <div className="relative z-10 py-12 lg:py-20">
-              <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-8">
+            <div className="relative z-10 py-8 sm:py-12 lg:py-20">
+              <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-6 sm:mb-8">
                 <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
                 Trusted by Filipinos everywhere
               </div>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-stone-800 mb-6 leading-[1.1]">
+              <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-stone-800 mb-4 sm:mb-6 leading-[1.1]">
                 Seamless Care,{' '}
                 <span className="text-blue-600 italic">Delivered to You</span>
               </h1>
-              <p className="text-xl md:text-2xl text-stone-500 max-w-xl leading-relaxed mb-4">
+              <p className="text-lg sm:text-xl md:text-2xl text-stone-500 max-w-xl leading-relaxed mb-3 sm:mb-4">
                 Gamot na Sigurado, Hatid sa Inyo
               </p>
-              <p className="text-lg text-stone-400 max-w-lg leading-relaxed mb-10">
+              <p className="text-base sm:text-lg text-stone-400 max-w-lg leading-relaxed mb-8 sm:mb-10">
                 Whether you're a senior managing daily meds, a professional too busy to line up, or someone who values discreet delivery — your maintenance medicine arrives at your door, physician-guided and pharmacist-verified.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
                 <button
                   onClick={() => setCurrentStep(userProfile.isRegistered ? AppState.DASHBOARD : AppState.ONBOARDING)}
-                  className="bg-blue-600 text-white py-4 px-10 rounded-full text-xl font-bold shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all transform active:scale-[0.98]"
+                  className="bg-blue-600 text-white py-3.5 sm:py-4 px-8 sm:px-10 rounded-full text-lg sm:text-xl font-bold shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all transform active:scale-[0.98]"
                 >
                   Get Started
                 </button>
                 <button
                   onClick={() => setCurrentStep(AppState.ABOUT)}
-                  className="text-stone-600 py-4 px-10 rounded-full text-xl font-semibold border-2 border-stone-200 hover:border-blue-300 hover:text-blue-700 transition-all transform active:scale-[0.98]"
+                  className="text-stone-600 py-3.5 sm:py-4 px-8 sm:px-10 rounded-full text-lg sm:text-xl font-semibold border-2 border-stone-200 hover:border-blue-300 hover:text-blue-700 transition-all transform active:scale-[0.98]"
                 >
                   Learn More
                 </button>
@@ -168,7 +186,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Mobile Hero Image */}
-        <div className="lg:hidden px-6 pb-8">
+        <div className="lg:hidden px-4 sm:px-6 pb-6 sm:pb-8">
           <div className="rounded-3xl overflow-hidden shadow-xl warm-glow">
             <img
               src="https://images.unsplash.com/photo-1627146733272-dfecc12a4c29?auto=format&fit=crop&w=800&q=80"
@@ -191,10 +209,10 @@ const App: React.FC = () => {
       </section>
 
       {/* Trust Bar */}
-      <section className="py-16 border-t border-blue-100">
-        <div className="max-w-5xl mx-auto px-6">
-          <p className="text-center text-stone-400 text-sm font-semibold uppercase tracking-widest mb-10">How we care for your family</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="py-10 sm:py-16 border-t border-blue-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <p className="text-center text-stone-400 text-sm font-semibold uppercase tracking-widest mb-8 sm:mb-10">How we care for your family</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             <div className="flex flex-col items-center gap-4 group">
               <div className="w-16 h-16 bg-blue-50 border border-blue-200 rounded-2xl flex items-center justify-center transition-all group-hover:bg-blue-100 group-hover:shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
@@ -236,17 +254,17 @@ const App: React.FC = () => {
       </section>
 
       {/* The Reality Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="py-12 sm:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <p className="text-center text-blue-600 text-sm font-semibold uppercase tracking-widest mb-4">The reality</p>
-          <h2 className="font-display text-3xl md:text-4xl text-stone-800 text-center mb-6">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-stone-800 text-center mb-4 sm:mb-6">
             Managing chronic illness shouldn't be this hard
           </h2>
-          <p className="text-center text-stone-500 text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
+          <p className="text-center text-stone-500 text-base sm:text-lg max-w-2xl mx-auto mb-10 sm:mb-14 leading-relaxed">
             For millions of Filipinos on maintenance medication — seniors, busy professionals, and those seeking privacy — the monthly routine is exhausting, and skipping even one refill has real consequences.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="relative pl-6 border-l-2 border-stone-200">
               <p className="font-display text-4xl text-stone-800 mb-2">50%</p>
               <p className="text-stone-500 leading-relaxed">
@@ -276,14 +294,14 @@ const App: React.FC = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 border-t border-blue-50">
-        <div className="max-w-5xl mx-auto px-6">
+      <section className="py-12 sm:py-20 border-t border-blue-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <p className="text-center text-blue-600 text-sm font-semibold uppercase tracking-widest mb-4">How it works</p>
-          <h2 className="font-display text-3xl md:text-4xl text-stone-800 text-center mb-14">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-stone-800 text-center mb-10 sm:mb-14">
             Four steps. Then it just runs.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
             <div className="text-center">
               <div className="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mx-auto mb-5 font-display text-2xl">1</div>
               <h3 className="font-bold text-stone-800 text-lg mb-2">Register & consult</h3>
@@ -317,17 +335,17 @@ const App: React.FC = () => {
       </section>
 
       {/* Labs & Monitoring */}
-      <section className="py-20 bg-white border-t border-blue-50">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="py-12 sm:py-20 bg-white border-t border-blue-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <p className="text-center text-blue-600 text-sm font-semibold uppercase tracking-widest mb-4">Labs & Monitoring</p>
-          <h2 className="font-display text-3xl md:text-4xl text-stone-800 text-center mb-6">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-stone-800 text-center mb-4 sm:mb-6">
             Your labs, handled seamlessly
           </h2>
-          <p className="text-center text-stone-500 text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
+          <p className="text-center text-stone-500 text-base sm:text-lg max-w-2xl mx-auto mb-10 sm:mb-14 leading-relaxed">
             After every teleconsult, your physician can request labs directly through the platform. Results are forwarded to your doctor automatically — no chasing paperwork.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 text-center">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
@@ -354,18 +372,18 @@ const App: React.FC = () => {
       </section>
 
       {/* Conditions & Quiet CTA */}
-      <section className="py-20 bg-stone-800 text-white relative overflow-hidden">
+      <section className="py-12 sm:py-20 bg-stone-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
-        <div className="relative z-10 max-w-4xl mx-auto px-6">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
           <p className="text-center text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">Built for continuity</p>
-          <h2 className="font-display text-3xl md:text-4xl text-center mb-6">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-center mb-4 sm:mb-6">
             Chronic conditions need consistent care
           </h2>
-          <p className="text-center text-stone-400 text-lg max-w-xl mx-auto mb-14 leading-relaxed">
+          <p className="text-center text-stone-400 text-base sm:text-lg max-w-xl mx-auto mb-10 sm:mb-14 leading-relaxed">
             We currently support patients managing the most common maintenance conditions in the Philippines.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-14">
             <div className="bg-stone-700/50 border border-stone-600 rounded-2xl p-6 text-center hover:bg-stone-700/70 transition-colors">
               <p className="font-display text-2xl mb-1">Hypertension</p>
               <p className="text-stone-400 text-sm">Amlodipine, Losartan, Telmisartan, and more</p>
@@ -405,10 +423,10 @@ const App: React.FC = () => {
       </section>
 
       {/* Quiet Testimonial */}
-      <section className="py-20">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <section className="py-12 sm:py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-blue-200 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-          <blockquote className="font-display text-2xl md:text-3xl text-stone-700 italic leading-relaxed mb-6">
+          <blockquote className="font-display text-xl sm:text-2xl md:text-3xl text-stone-700 italic leading-relaxed mb-6">
             Before Mediliver, I had to take a tricycle to the pharmacy, wait in line, sometimes they didn't have my Metformin. Now it just arrives. My anak set it up for me.
           </blockquote>
           <p className="text-stone-500 font-semibold">Lola Carmen, 72</p>
@@ -418,7 +436,7 @@ const App: React.FC = () => {
 
       {/* ER Disclaimer */}
       <section className="bg-red-50 border-t border-red-100">
-        <div className="max-w-4xl mx-auto px-6 py-6 flex items-start gap-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex items-start gap-3 sm:gap-4">
           <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
           </div>

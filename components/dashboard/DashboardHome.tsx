@@ -14,10 +14,10 @@ export const DashboardHome: React.FC<Props> = ({ userProfile, medications, onNav
   return (
     <div className="space-y-8">
       {/* Refill Progress Card */}
-      <section className="bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
+      <section className="bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700 rounded-3xl p-5 sm:p-8 text-white shadow-xl relative overflow-hidden">
         <div className="relative z-10">
-          <h3 className="text-lg font-medium opacity-90 mb-2">Refill Automation</h3>
-          <p className="text-4xl font-black mb-1">22 Days Remaining</p>
+          <h3 className="text-base sm:text-lg font-medium opacity-90 mb-2">Refill Automation</h3>
+          <p className="text-3xl sm:text-4xl font-black mb-1">22 Days Remaining</p>
           <div className="w-full bg-blue-800/40 h-3 rounded-full mb-6">
             <div className="bg-white h-3 rounded-full w-[70%]"></div>
           </div>

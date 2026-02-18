@@ -81,17 +81,17 @@ export const PharmacyPortal: React.FC<Props> = ({ session, onLogout }) => {
   };
 
   return (
-    <div className="pb-8 max-w-4xl mx-auto px-4 pt-8 bg-ivory min-h-screen">
+    <div className="pb-8 max-w-4xl mx-auto px-4 pt-6 sm:pt-8 bg-ivory min-h-screen">
       {/* Header */}
       <header className="flex justify-between items-start mb-6">
         <div>
-          <h1 className="font-display text-3xl text-stone-800 tracking-tight">
+          <h1 className="font-display text-2xl sm:text-3xl text-stone-800 tracking-tight">
             MEDILIVER<span className="text-blue-600"> PH</span>
           </h1>
-          <p className="text-stone-400 text-base mt-1">Partner Portal &mdash; Pharmacy</p>
+          <p className="text-stone-400 text-sm sm:text-base mt-1">Partner Portal &mdash; Pharmacy</p>
         </div>
         <div className="flex items-center gap-3">
-          <div className="text-right">
+          <div className="text-right hidden sm:block">
             <p className="text-stone-700 font-semibold text-base">{session.name}</p>
             <p className="text-stone-400 text-sm">{session.email}</p>
           </div>

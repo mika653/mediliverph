@@ -105,21 +105,21 @@ export const Dashboard: React.FC<Props> = ({ userProfile, medications, onNavigat
   };
 
   return (
-    <div className="pb-24 max-w-4xl mx-auto px-4 pt-8 bg-ivory min-h-screen">
+    <div className="pb-24 max-w-4xl mx-auto px-4 pt-6 sm:pt-8 bg-ivory min-h-screen">
       {/* Header */}
       <header className="flex justify-between items-center mb-6">
-        <div>
-          <h2 className="font-display text-3xl text-stone-800">Hello, {userProfile.name}!</h2>
+        <div className="min-w-0 flex-1">
+          <h2 className="font-display text-2xl sm:text-3xl text-stone-800 truncate">Hello, {userProfile.name}!</h2>
           <div className="flex items-center gap-2 mt-1">
-            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-            <p className="text-stone-400 text-lg">Active Subscription: {userProfile.refillCycle}-Day Cycle</p>
+            <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse flex-shrink-0"></span>
+            <p className="text-stone-400 text-sm sm:text-lg truncate">Active Subscription: {userProfile.refillCycle}-Day Cycle</p>
           </div>
         </div>
         <div
-          className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center border-4 border-white shadow-md cursor-pointer hover:scale-105 transition-transform"
+          className="w-11 h-11 sm:w-14 sm:h-14 bg-blue-100 rounded-full flex items-center justify-center border-4 border-white shadow-md cursor-pointer hover:scale-105 transition-transform flex-shrink-0 ml-3"
           onClick={() => onNavigate(AppState.LANDING)}
         >
-          <span className="text-xl">👩‍🦳</span>
+          <span className="text-lg sm:text-xl">👩‍🦳</span>
         </div>
       </header>
 

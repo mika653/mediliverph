@@ -95,19 +95,19 @@ export const PharmacyOverview: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Stat Cards */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className={`${bgMap[stat.color]} rounded-2xl border border-stone-100 shadow-sm p-5`}
+            className={`${bgMap[stat.color]} rounded-2xl border border-stone-100 shadow-sm p-4 sm:p-5`}
           >
             <div className="flex items-center justify-between mb-3">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-xl flex items-center justify-center shadow-sm">
                 {stat.icon}
               </div>
             </div>
-            <p className={`text-3xl font-bold ${numColorMap[stat.color]}`}>{stat.value}</p>
-            <p className="text-stone-500 text-sm font-medium mt-1">{stat.label}</p>
+            <p className={`text-2xl sm:text-3xl font-bold ${numColorMap[stat.color]}`}>{stat.value}</p>
+            <p className="text-stone-500 text-xs sm:text-sm font-medium mt-1">{stat.label}</p>
           </div>
         ))}
       </div>

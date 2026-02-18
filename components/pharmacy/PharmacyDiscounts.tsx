@@ -12,19 +12,19 @@ export const PharmacyDiscounts: React.FC = () => {
       <h3 className="font-display text-xl text-stone-800">Senior Citizen / PWD Discounts</h3>
 
       {/* Summary Card */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl border border-stone-100 shadow-sm p-6">
-        <div className="grid grid-cols-3 gap-4 text-center">
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl border border-stone-100 shadow-sm p-4 sm:p-6">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
           <div>
-            <p className="text-3xl font-bold text-blue-700">{seniorPwdOrders.length}</p>
-            <p className="text-stone-500 text-sm font-medium mt-1">SC/PWD Orders</p>
+            <p className="text-2xl sm:text-3xl font-bold text-blue-700">{seniorPwdOrders.length}</p>
+            <p className="text-stone-500 text-xs sm:text-sm font-medium mt-1">SC/PWD Orders</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-emerald-700">{discountAppliedCount}</p>
-            <p className="text-stone-500 text-sm font-medium mt-1">Discount Applied</p>
+            <p className="text-2xl sm:text-3xl font-bold text-emerald-700">{discountAppliedCount}</p>
+            <p className="text-stone-500 text-xs sm:text-sm font-medium mt-1">Discount Applied</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-orange-600">{discountPendingCount}</p>
-            <p className="text-stone-500 text-sm font-medium mt-1">Pending</p>
+            <p className="text-2xl sm:text-3xl font-bold text-orange-600">{discountPendingCount}</p>
+            <p className="text-stone-500 text-xs sm:text-sm font-medium mt-1">Pending</p>
           </div>
         </div>
       </div>

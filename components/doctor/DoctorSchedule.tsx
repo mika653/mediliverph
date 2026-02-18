@@ -44,13 +44,13 @@ export const DoctorSchedule: React.FC = () => {
                 key={consult.id}
                 className="bg-white rounded-2xl border border-stone-100 shadow-sm p-5"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="space-y-3">
                   <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-bold text-stone-800">
                       {consult.patientName}
                     </h3>
                     <div className="flex items-center gap-2 mt-2 flex-wrap">
-                      <span className="text-base text-stone-500 font-semibold">
+                      <span className="text-sm sm:text-base text-stone-500 font-semibold">
                         {consult.date} &middot; {consult.time}
                       </span>
                       <span
@@ -64,7 +64,7 @@ export const DoctorSchedule: React.FC = () => {
                   </div>
                   <button
                     onClick={() => alert('Demo only')}
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-2xl text-base transition-colors whitespace-nowrap flex-shrink-0"
+                    className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-2xl text-base transition-colors"
                   >
                     Start Consult
                   </button>
